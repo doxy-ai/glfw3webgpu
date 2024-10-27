@@ -91,7 +91,8 @@ WGPUSurface glfwCreateWindowWGPUSurface(WGPUInstance instance, GLFWwindow* windo
 
         WGPUSurfaceDescriptor surfaceDescriptor;
         surfaceDescriptor.nextInChain = &fromXlibWindow.chain;
-        surfaceDescriptor.label = NULL;
+        surfaceDescriptor.label.data = NULL;
+        surfaceDescriptor.label.length = 0;
 
         return wgpuInstanceCreateSurface(instance, &surfaceDescriptor);
     }
